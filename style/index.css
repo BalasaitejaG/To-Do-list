@@ -1,0 +1,160 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Kalam:wght@300;400;700&display=swap");
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+html,
+body {
+  height: 100%;
+  width: 100%;
+  background-color: #0d0d0d;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 5vh;
+  padding-left: 20vh;
+  padding-right: 20vh;
+}
+.title h2 {
+  margin-left: 10vh;
+  margin-top: 2.4vh;
+  font-size: 1.5rem;
+  font-weight: 400;
+  color: #cdbca3;
+}
+
+.signout a {
+  text-decoration: none;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.signout button {
+  background-color: #ee522f;
+  color: #cebea4;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 10px;
+  cursor: pointer;
+}
+.title span {
+  color: #ee522f;
+}
+
+.container {
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
+  /* background-color: white; */
+}
+
+.quots {
+  height: 32vh;
+  width: 33vw;
+  border: 2px solid #cdbca3;
+  border-radius: 6vh;
+  background-color: #0d0d0d;
+  margin-top: 5vh;
+  margin-bottom: 8vh;
+  padding-top: 3vh;
+  padding-bottom: 5vh;
+}
+
+.quots h2 {
+  padding-top: 5.5vh;
+  padding-left: 30px;
+  padding-bottom: 2vh;
+  font-size: 2rem;
+  color: #cdbca3;
+  margin-top: 2.4vh;
+}
+
+.quots p {
+  font-family: "Kalam", cursive;
+  padding-left: 30px;
+  font-size: 1.5rem;
+  font-weight: 200;
+  color: #cdbca3;
+  padding-bottom: 2vh;
+}
+
+.add-todo {
+  margin-bottom: 10px;
+}
+
+.add-todo input {
+  padding: 17px;
+  font-size: 16px;
+  border: none;
+  border-radius: 3vh;
+  background-color: #1e1e1e;
+  color: white;
+  width: 300px;
+  align-items: center;
+}
+
+.add-todo button {
+  padding: 10px 20px;
+  background-color: #5cb85c;
+  color: white;
+  border: none;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.add-todo button:hover {
+  background-color: #449d44;
+}
+
+/* Styling for each todo item */
+.todo {
+  background-color: #0d0d0d;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-text p {
+  margin: 0;
+  font-size: 2rem;
+  color: #cdbca3;
+}
+
+/* Styling the action buttons (Edit and Delete) */
+.todo-actions button {
+  padding: 5px 10px;
+  margin-left: 5px;
+  border: none;
+  cursor: pointer;
+}
+
+.edit {
+  background-color: #f0ad4e;
+  color: white;
+}
+
+.delete {
+  background-color: #d9534f;
+  color: white;
+}
+
+.edit:hover {
+  background-color: #ec971f;
+}
+
+.delete:hover {
+  background-color: #c9302c;
+}
