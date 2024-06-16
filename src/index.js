@@ -3,15 +3,29 @@ document.addEventListener("DOMContentLoaded", () => {
   const inputField = document.querySelector(".add-todo input");
   const todosContainer = document.querySelector(".todos");
 
+  // Load todos from localStorage
+  loadTodos();
+
   addButton.addEventListener("click", () => {
-    const todoText = inputField.value.trim();
-    if (todoText) {
-      todosContainer.appendChild(createTodoItem(todoText));
-      inputField.value = "";
+    addTodo();
+  });
+
+  inputField.addEventListener("keypress", (event) => {
+    if (event.key === "Enter") {
+      addTodo();
     }
   });
 
-  function createTodoItem(text) {
+  function addTodo() {
+    const todoText = inputField.value.trim();
+    if (todoText) {
+      todosContainer.appendChild(createTodoItem(todoText, false));
+      saveTodos();
+      inputField.value = "";
+    }
+  }
+
+  function createTodoItem(text, isDone) {
     const todoDiv = document.createElement("div");
     todoDiv.className = "todo";
 
@@ -19,6 +33,9 @@ document.addEventListener("DOMContentLoaded", () => {
     todoTextDiv.className = "todo-text";
     const p = document.createElement("p");
     p.textContent = text;
+    if (isDone) {
+      p.style.textDecoration = "line-through";
+    }
     todoTextDiv.appendChild(p);
 
     const todoActionsDiv = document.createElement("div");
@@ -41,11 +58,31 @@ document.addEventListener("DOMContentLoaded", () => {
         p.textContent = todoTextDiv.querySelector("input").value;
         todoTextDiv.replaceChild(p, todoTextDiv.querySelector("input"));
         editButton.textContent = "Edit";
+        saveTodos();
       }
     });
 
     deleteButton.addEventListener("click", function () {
       todosContainer.removeChild(todoDiv);
+      saveTodos();
+    });
+
+    p.addEventListener("click", function () {
+      if (p.style.textDecoration === "line-through") {
+        p.style.textDecoration = "none";
+      } else {
+        p.style.textDecoration = "line-through";
+      }
+      saveTodos();
+    });
+
+    p.addEventListener("dblclick", function () {
+      if (p.style.textDecoration === "line-through") {
+        p.style.textDecoration = "none";
+      } else {
+        p.style.textDecoration = "line-through";
+      }
+      saveTodos();
     });
 
     todoActionsDiv.appendChild(editButton);
@@ -55,5 +92,24 @@ document.addEventListener("DOMContentLoaded", () => {
     todoDiv.appendChild(todoActionsDiv);
 
     return todoDiv;
+  }
+
+  function saveTodos() {
+    const todos = [];
+    todosContainer.querySelectorAll(".todo").forEach((todoDiv) => {
+      const text = todoDiv.querySelector(".todo-text p").textContent;
+      const isDone = todoDiv.querySelector(".todo-text p").style.textDecoration === "line-through";
+      todos.push({ text, isDone });
+    });
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
+
+  function loadTodos() {
+    const savedTodos = localStorage.getItem("todos");
+    if (savedTodos) {
+      JSON.parse(savedTodos).forEach((todo) => {
+        todosContainer.appendChild(createTodoItem(todo.text, todo.isDone));
+      });
+    }
   }
 });
