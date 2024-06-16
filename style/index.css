@@ -40,17 +40,16 @@ nav {
   color: #cebea4;
   border: none;
   padding: 10px 20px;
-  border: 2px solid #ff5631;
-  border-radius: 10px;
   cursor: pointer;
-
+  border: 2px solid #0d0d0d;
 }
 .signout a {
   color: #cebea4;
 }
 
 .signout button:hover {
-  background-color: #ff5631;
+  border-radius: 10px;
+  border: 2px solid #ff5631;
 }
 .title span {
   color: #ff5631;
@@ -63,7 +62,6 @@ nav {
   align-items: center;
   justify-content: space-between;
   height: 100%;
-  /* background-color: white; */
 }
 
 .quots {
@@ -97,7 +95,7 @@ nav {
 }
 
 .add-todo {
-  margin-bottom: 10px;
+  margin-bottom: 22vw;
 }
 
 .add-todo input {
@@ -128,7 +126,6 @@ nav {
 .todo {
   background-color: #0d0d0d;
   padding: 10px;
-  margin-bottom: 10px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: flex;
@@ -150,12 +147,12 @@ nav {
   cursor: pointer;
 }
 
-.edit {
+.add-todo .edit {
   background-color: #f0ad4e;
   color: white;
 }
 
-.delete {
+.add-todo .delete {
   background-color: #d9534f;
   color: white;
 }
